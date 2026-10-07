@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - Sistema Escolar</title>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+
+    <div class="card login-card bg-white text-dark">
+        <div class="card-body">
+            <h3 class="text-center mb-4 fw-bold text-dark">Sistema Escolar</h3>
+            <p class="text-muted text-center mb-4">Ingresa tus credenciales para acceder</p>
+            
+            <form id="form-login">
+                <div class="mb-3">
+                    <label for="username" class="form-label fw-semibold">Usuario o Correo</label>
+                    <input type="text" class="form-control" id="username" placeholder="Ej. admin o admin@gmail.com" required>
+                </div>
+                
+                <div class="mb-4">
+                    <label for="password" class="form-label fw-semibold">Contraseña</label>
+                    <input type="password" class="form-control" id="password" placeholder="••••••••" required>
+                </div>
+                
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-dark btn-lg">Iniciar Sesión</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="js/utileria.js"></script>
+    <script src="js/login.js"></script>
+</body>
+</html>
