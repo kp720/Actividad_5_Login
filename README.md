@@ -4,10 +4,10 @@ Instituto Tecnológico de Oaxaca
 ## Materia: Programación Web  
 ## Proyecto: Sistema Escolar - Módulo de Captura y Validación (Actividad 5)  
 
- ## Integrantes del Equipo:
+## Integrantes del Equipo:
  
-
- Espinoza de la Rosa Uriel
+Nava Peralta Kevin Peralta
+Espinoza de la Rosa Uriel
 
 ## Equipo 9
 

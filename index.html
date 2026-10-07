@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Escolar</title>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="d-flex" id="wrapper">
+        <div class="bg-dark text-white" id="sidebar-wrapper">
+            <div class="sidebar-heading text-center py-4 fs-4 fw-bold border-bottom">Admin Panel</div>
+            <div class="list-group list-group-flush my-3">
+                
+                <a href="#submenuUsuarios" data-bs-toggle="collapse" class="list-group-item list-group-item-action bg-dark text-white fw-bold">
+                    Usuarios ▼
+                </a>
+                <div class="collapse" id="submenuUsuarios">
+                    <a href="#" class="list-group-item list-group-item-action bg-secondary text-white ps-5" id="btn-captura">
+                        Captura
+                    </a>
+                </div>
+
+            </div>
+        </div>
+        <div id="page-content-wrapper" class="w-100 bg-light">
+            
+            <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom p-3">
+                <div class="d-flex w-100 justify-content-between align-items-center">
+                    <button class="btn btn-primary" id="menu-toggle">☰ Menú</button>
+
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle fw-semibold text-dark" href="#" id="nombreUsuarioNavbar" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Administrador
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Mi Perfil</a></li>
+                                <li><a class="dropdown-item" href="#">Configuración</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item text-danger" href="login.html">Cerrar Sesión</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="container-fluid p-4">
+                
+                <h1 class="mb-4">Módulo de Captura</h1>
+
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="card shadow-sm">
+                            <div class="card-header bg-primary text-white">Captura de Usuario</div>
+                            <div class="card-body">
+                                <form id="form-usuarios">
+                                    <div class="mb-3">
+                                        <label class="form-label">Nombre de Usuario</label>
+                                        <input type="text" class="form-control" id="nombreUsuario" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Correo Electrónico</label>
+                                        <input type="email" class="form-control" id="correoUsuario" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Contraseña</label>
+                                        <input type="password" class="form-control" id="passwordUsuario" required>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Validar Usuario</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card shadow-sm">
+                            <div class="card-header bg-success text-white">Captura de Alumnos</div>
+                            <div class="card-body">
+                                <form id="form-alumnos">
+                                    <div class="mb-3">
+                                        <label class="form-label">Número de Control (8 dígitos)</label>
+                                        <input type="text" inputmode="numeric" pattern="[0-9]{8}" maxlength="8" class="form-control" id="numControl" placeholder="Ej. 22161086" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Edad del Alumno</label>
+                                        <input type="number" class="form-control" id="edadAlumno" required>
+                                    </div>
+                                    <button type="submit" class="btn btn-success">Verificar Alumno</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalEdad" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-info text-white">
+                    <h5 class="modal-title">Resultado de Verificación</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="fs-5" id="mensajeModalEdad"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="js/utileria.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>
