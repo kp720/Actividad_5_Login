@@ -140,7 +140,7 @@ formAlumnos.addEventListener('submit', function(e) {
 
     const nombre = inputNombreAlumno.value.trim();
     const numControl = inputNumControl.value.trim();
-    const edad = NaN;
+    let edad = NaN;
     const fecha = inputFecha.value;
 
 
