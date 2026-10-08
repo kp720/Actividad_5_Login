@@ -1,39 +1,61 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iniciar Sesión - Sistema Escolar</title>
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/login.css">
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Iniciar Sesión</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/login.css">
+    </head>
+    <body>
+        <main class="login-layout">
+            <aside class="login-brand">
+                <div class="brand-content">
+                    <h1 class="brand-title">Sistema Escolar</h1>
+                    <p class="brand-text">Administración y Educación.</p>
+                </div>
+            </aside>
 
-    <div class="card login-card bg-white text-dark">
-        <div class="card-body">
-            <h3 class="text-center mb-4 fw-bold text-dark">Sistema Escolar</h3>
-            <p class="text-muted text-center mb-4">Ingresa tus credenciales para acceder</p>
-            
-            <form id="form-login">
-                <div class="mb-3">
-                    <label for="username" class="form-label fw-semibold">Usuario o Correo</label>
-                    <input type="text" class="form-control" id="username" placeholder="Ej. admin o admin@gmail.com" required>
-                </div>
-                
-                <div class="mb-4">
-                    <label for="password" class="form-label fw-semibold">Contraseña</label>
-                    <input type="password" class="form-control" id="password" placeholder="••••••••" required>
-                </div>
-                
-                <div class="d-grid">
-                    <button type="submit" class="btn btn-dark btn-lg">Iniciar Sesión</button>
-                </div>
-            </form>
-        </div>
-    </div>
+            <section class="login-panel">
+                <div class="login-card">
+                    <h2 class="login-title">Iniciar sesión</h2>
+                    <p class="login-subtitle">Ingresa con tu usuario o correo electrónico.</p>
 
-    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="js/utileria.js"></script>
-    <script src="js/login.js"></script>
-</body>
+                    <form id="form-login" novalidate>
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Usuario o correo</label>
+                            <input type="text" class="form-control" id="username"
+                                placeholder="admin o admin@gmail.com"
+                                autocomplete="username" autofocus>
+                            <div class="invalid-feedback" id="error-username" aria-live="polite"></div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="password" class="form-label">Contraseña</label>
+                            <div class="input-group has-validation">
+                                <input type="password" class="form-control" id="password"
+                                    placeholder="Tu contraseña"
+                                    autocomplete="current-password">
+                                <button type="button" class="btn btn-toggle" id="btn-ver-password"
+                                        aria-label="Mostrar contraseña" aria-pressed="false">Mostrar</button>
+                                <div class="invalid-feedback" id="error-password" aria-live="polite"></div>
+                            </div>
+                            <div class="form-text">Mínimo 8 caracteres, con mayúscula, minúscula, número y un carácter especial.</div>
+                        </div>
+
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-login">Iniciar sesión</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+        </main>
+        <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="js/login.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/kp720/utileria@main/js/utileria.js"></script>
+    </body>
 </html>

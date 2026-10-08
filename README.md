@@ -5,9 +5,10 @@ Instituto Tecnológico de Oaxaca
 ## Proyecto: Sistema Escolar - Módulo de Captura y Validación (Actividad 5)  
 
 ## Integrantes del Equipo:
- 
-Nava Peralta Kevin Peralta
+
 Espinoza de la Rosa Uriel
+
+Nava Peralta Kevin Peralta
 
 ## Equipo 9
 

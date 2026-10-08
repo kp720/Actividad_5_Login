@@ -1,0 +1,333 @@
+/* ---------- Tokens (los mismos del login) ---------- */
+:root {
+    --azul-institucional: #1d3557;
+    --azul-oscuro: #14253f;
+    --azul-acento: #2f5fa8;
+    --texto: #1c2430;
+    --texto-suave: #5b6676;
+    --fondo: #f4f6f9;
+    --borde: #d5dbe5;
+    --blanco: #ffffff;
+    --verde: #1f7a4d;
+    --ambar: #8a5a00;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    color: var(--texto);
+    background-color: var(--fondo);
+}
+
+/* ---------- Barra lateral ---------- */
+#sidebar-wrapper {
+    min-height: 100vh;
+    width: 15rem;
+    margin-left: -15rem;
+    flex-shrink: 0;
+    color: var(--blanco);
+    background-color: var(--azul-institucional);
+    transition: margin 0.25s ease-out;
+}
+
+#sidebar-wrapper .sidebar-heading {
+    padding: 24px 20px;
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.sidebar-menu {
+    padding: 16px 0;
+}
+
+.sidebar-group-toggle,
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    font-size: 0.92rem;
+    color: rgba(255, 255, 255, 0.82);
+    text-decoration: none;
+}
+
+.sidebar-group-toggle {
+    font-weight: 500;
+}
+
+/* Flecha que gira cuando el submenú está abierto */
+.sidebar-group-toggle::after {
+    content: "";
+    width: 0.45rem;
+    height: 0.45rem;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(45deg);
+    transition: transform 0.15s ease;
+}
+
+.sidebar-group-toggle[aria-expanded="true"]::after {
+    transform: rotate(-135deg);
+}
+
+.sidebar-link {
+    padding-left: 36px;
+}
+
+.sidebar-group-toggle:hover,
+.sidebar-link:hover {
+    color: var(--blanco);
+    background-color: rgba(255, 255, 255, 0.07);
+}
+
+.sidebar-link.active {
+    color: var(--blanco);
+    background-color: rgba(255, 255, 255, 0.12);
+}
+
+.sidebar-group-toggle:focus-visible,
+.sidebar-link:focus-visible {
+    outline: 2px solid var(--blanco);
+    outline-offset: -2px;
+}
+
+/* ---------- Contenido y barra superior ---------- */
+#page-content-wrapper {
+    min-width: 100vw;
+    transition: min-width 0.25s ease-out;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    margin-left: 0;
+}
+
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 24px;
+    background-color: var(--blanco);
+    border-bottom: 1px solid var(--borde);
+}
+
+.btn-menu {
+    padding: 7px 16px;
+    font-size: 0.9rem;
+    color: var(--texto);
+    background-color: var(--blanco);
+    border: 1px solid var(--borde);
+    border-radius: 6px;
+}
+
+.btn-menu:hover {
+    color: var(--texto);
+    background-color: var(--fondo);
+}
+
+.btn-menu:focus-visible {
+    outline: 3px solid rgba(47, 95, 168, 0.4);
+    outline-offset: 2px;
+}
+
+.user-toggle {
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: var(--texto);
+    text-decoration: none;
+}
+
+.user-toggle:hover {
+    color: var(--azul-acento);
+}
+
+.dropdown-menu {
+    border: 1px solid var(--borde);
+    border-radius: 8px;
+    font-size: 0.9rem;
+}
+
+.content {
+    padding: 32px 24px;
+}
+
+.page-title {
+    margin: 0 0 24px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+
+/* ---------- Tarjetas ---------- */
+.card {
+    background-color: var(--blanco);
+    border: 1px solid var(--borde);
+    border-radius: 8px;
+    box-shadow: none;
+}
+
+.card-header {
+    padding: 16px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: var(--blanco);
+    border-bottom: 1px solid var(--borde);
+    border-radius: 8px 8px 0 0;
+}
+
+.card-body {
+    padding: 24px 20px;
+}
+
+/* ---------- Formularios (igual que el login) ---------- */
+.form-label {
+    margin-bottom: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.form-control {
+    padding: 11px 14px;
+    font-size: 0.95rem;
+    color: var(--texto);
+    background-color: var(--blanco);
+    border: 1px solid var(--borde);
+    border-radius: 6px;
+}
+
+.form-control::placeholder {
+    color: #98a2b3;
+}
+
+.form-control:focus {
+    border-color: var(--azul-acento);
+    box-shadow: 0 0 0 3px rgba(47, 95, 168, 0.18);
+}
+
+.form-text {
+    margin-top: 8px;
+    font-size: 0.8rem;
+    color: var(--texto-suave);
+}
+
+.invalid-feedback {
+    font-size: 0.82rem;
+}
+
+/* ---------- Botones ---------- */
+.btn-accion {
+    padding: 11px 22px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--blanco);
+    background-color: var(--azul-institucional);
+    border: 0;
+    border-radius: 6px;
+    transition: background-color 0.15s ease;
+}
+
+.btn-accion:hover,
+.btn-accion:active {
+    color: var(--blanco);
+    background-color: var(--azul-oscuro);
+}
+
+.btn-accion:focus-visible {
+    outline: 3px solid rgba(47, 95, 168, 0.4);
+    outline-offset: 2px;
+}
+
+.btn-secundario {
+    padding: 9px 20px;
+    font-size: 0.9rem;
+    color: var(--texto);
+    background-color: var(--blanco);
+    border: 1px solid var(--borde);
+    border-radius: 6px;
+}
+
+.btn-secundario:hover {
+    color: var(--texto);
+    background-color: var(--fondo);
+}
+
+/* ---------- Resultado de la captura de usuario ---------- */
+.resultado {
+    margin-top: 20px;
+    padding: 12px 14px;
+    font-size: 0.9rem;
+    color: var(--verde);
+    background-color: #eef7f2;
+    border: 1px solid #bfdfcd;
+    border-radius: 6px;
+}
+
+/* ---------- Modal ---------- */
+.modal-content {
+    border: 1px solid var(--borde);
+    border-radius: 8px;
+}
+
+.modal-header,
+.modal-footer {
+    border-color: var(--borde);
+}
+
+.modal-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+
+.modal-resumen {
+    margin: 0 0 8px;
+    color: var(--texto-suave);
+}
+
+.modal-estado {
+    margin: 0;
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+
+.estado-mayor {
+    color: var(--verde);
+}
+
+.estado-menor {
+    color: var(--ambar);
+}
+
+/* ---------- Escritorio: la barra lateral siempre visible ---------- */
+@media (min-width: 768px) {
+    #sidebar-wrapper {
+        margin-left: 0;
+    }
+
+    #page-content-wrapper {
+        min-width: 0;
+        width: 100%;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        margin-left: -15rem;
+    }
+
+    .content {
+        padding: 40px 40px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #sidebar-wrapper,
+    #page-content-wrapper,
+    .sidebar-group-toggle::after,
+    .btn-accion {
+        transition: none;
+    }
+}

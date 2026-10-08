@@ -1,48 +1,198 @@
+/* ---------- Tokens ---------- */
+:root {
+    --azul-institucional: #1d3557;
+    --azul-oscuro: #14253f;
+    --azul-acento: #2f5fa8;
+    --texto: #1c2430;
+    --texto-suave: #5b6676;
+    --fondo: #f4f6f9;
+    --borde: #d5dbe5;
+    --blanco: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+}
+
 body {
-    background-color: #f8f9fa;
-    height: 100vh;
+    margin: 0;
+    min-height: 100vh;
+    font-family: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    color: var(--texto);
+    background-color: var(--fondo);
+}
+
+/* ---------- Layout dividido ---------- */
+.login-layout {
+    display: grid;
+    grid-template-columns: 5fr 6fr;
+    min-height: 100vh;
+}
+
+/* ---------- Panel institucional (izquierda) ---------- */
+.login-brand {
+    display: flex;
+    align-items: center;
+    padding: 64px;
+    color: var(--blanco);
+    background-color: var(--azul-institucional);
+    background-image:
+        linear-gradient(rgba(29, 53, 87, 0.78), rgba(20, 37, 63, 0.88)),
+        url("../img/fondoLogin.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.brand-content {
+    max-width: 400px;
+}
+
+.brand-title {
+    margin: 0 0 12px;
+    font-size: 2.25rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+}
+
+.brand-text {
+    margin: 0;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.82);
+}
+
+/* ---------- Panel del formulario (derecha) ---------- */
+.login-panel {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 32px 24px;
 }
+
 .login-card {
     width: 100%;
     max-width: 400px;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-#sidebar-wrapper {
-    min-height: 100vh;
-    margin-left: -15rem;
-    width: 15rem;
-    transition: margin 0.25s ease-out;
+.login-title {
+    margin: 0 0 8px;
+    font-size: 1.75rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
 }
 
-#sidebar-wrapper .sidebar-heading {
-    padding: 0.875rem 1.25rem;
-    font-size: 1.2rem;
+.login-subtitle {
+    margin: 0 0 32px;
+    color: var(--texto-suave);
 }
 
-#page-content-wrapper {
-    min-width: 100vw;
-    transition: min-width 0.25s ease-out;
+/* ---------- Formulario ---------- */
+.form-label {
+    margin-bottom: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
 }
 
-#wrapper.toggled #sidebar-wrapper {
-    margin-left: 0;
+.form-control {
+    padding: 11px 14px;
+    font-size: 0.95rem;
+    color: var(--texto);
+    background-color: var(--blanco);
+    border: 1px solid var(--borde);
+    border-radius: 6px;
 }
 
-@media (min-width: 768px) {
-    #sidebar-wrapper {
-        margin-left: 0; 
+.form-control::placeholder {
+    color: #98a2b3;
+}
+
+.form-control:focus {
+    border-color: var(--azul-acento);
+    box-shadow: 0 0 0 3px rgba(47, 95, 168, 0.18);
+}
+
+.form-text {
+    margin-top: 8px;
+    font-size: 0.8rem;
+    color: var(--texto-suave);
+}
+
+.invalid-feedback {
+    font-size: 0.82rem;
+}
+
+/* Botón mostrar/ocultar contraseña */
+.btn-toggle {
+    min-width: 88px;
+    font-size: 0.85rem;
+    color: var(--texto-suave);
+    background-color: var(--blanco);
+    border: 1px solid var(--borde);
+    border-left: 0;
+}
+
+.btn-toggle:hover {
+    color: var(--texto);
+    background-color: var(--fondo);
+}
+
+.btn-toggle:focus-visible {
+    outline: 2px solid var(--azul-acento);
+    outline-offset: -2px;
+}
+
+/* Botón principal */
+.btn-login {
+    padding: 12px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--blanco);
+    background-color: var(--azul-institucional);
+    border: 0;
+    border-radius: 6px;
+    transition: background-color 0.15s ease;
+}
+
+.btn-login:hover,
+.btn-login:active {
+    color: var(--blanco);
+    background-color: var(--azul-oscuro);
+}
+
+.btn-login:focus-visible {
+    outline: 3px solid rgba(47, 95, 168, 0.4);
+    outline-offset: 2px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 767.98px) {
+    .login-layout {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr;
     }
-    #page-content-wrapper {
-        min-width: 0;
-        width: 100%;
+
+    .login-brand {
+        padding: 32px 24px;
     }
-    #wrapper.toggled #sidebar-wrapper {
-        margin-left: -15rem;
+
+    .brand-title {
+        font-size: 1.5rem;
+        margin-bottom: 4px;
+    }
+
+    .brand-text {
+        font-size: 0.95rem;
+    }
+
+    .login-panel {
+        align-items: flex-start;
+        padding-top: 40px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .btn-login {
+        transition: none;
     }
 }
